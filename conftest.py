@@ -6,8 +6,22 @@ from main import BooksCollector
 # Экземпляр класса
 @pytest.fixture
 def collector():
-    collector = BooksCollector()
-    return collector
+    return BooksCollector()
+
+# Книга с правильным названием
+@pytest.fixture
+def correct_book():
+    return 'Призрак в тостере'
+
+# Правильный жанр
+@pytest.fixture
+def correct_genre():
+    return 'Ужасы'
+
+# Неправильный жанр
+@pytest.fixture
+def incorrect_genre():
+    return 'Триллер'
 
 # Список книг корректной длины
 @pytest.fixture
@@ -42,23 +56,6 @@ def correct_named_book_genre_dict():
         'Лягушка-миллионер': 'Комедии'
     }
     return correct_named_book_genre_dict
-
-# Словарь книга-жанр с некорректными жанрами
-@pytest.fixture
-def incorrect_genred_book_genre_dict():
-    incorrect_genred_book_genre_dict = {
-        'Как перестать откладывать дела в никогда': 'Саморазвитие',
-        'Рецепты блюд до зарплаты: 5 минут': 'Кулинария',
-        'Великие битвы за парковку с соседом': 'История',
-        'Стихи о любви к Wi-Fi и ненависти': 'Поэзия',
-        'Тайна пропавшего пульта от телевизора': 'Триллер',
-        'Диета для холодильника: курс ЗОЖ': 'ЗОЖ',
-        'Как уснуть за 3 часа: методика': 'Психология',
-        'Выживание в лифте с болтливым коллегой': 'Справочник',
-        'Мемуары кактуса: 10 лет без полива': 'Автобиография',
-        'Поиск смысла жизни в 2 часа ночи': 'Философия'
-    }
-    return incorrect_genred_book_genre_dict
 
 @pytest.fixture
 def genre_age_rating_list():
