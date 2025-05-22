@@ -2,7 +2,6 @@ import pytest
 
 from main import BooksCollector
 from data import (
-    BOOK,
     BOOKS_GENRE
 )
 

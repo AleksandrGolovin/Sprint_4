@@ -5,8 +5,7 @@ from data import (
     BOOK_UNKNOWN,
     GENRE_HORROR,
     GENRE_UNKNOWN,
-    BOOKS_GENRE,
-    GENRE_AGE_RATING
+    BOOKS_GENRE
 )
 
 
