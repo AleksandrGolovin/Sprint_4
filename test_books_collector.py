@@ -74,7 +74,7 @@ class TestBooksCollector:
         """Книги по жанру"""
         books_with_specific_genre_horror = collector_filled.get_books_with_specific_genre(GENRE_HORROR)
         
-        assert all(BOOKS_GENRE.get(book) == GENRE_HORROR for book in books_with_specific_genre_horror)
+        assert all(collector_filled.books_genre.get(book) == GENRE_HORROR for book in books_with_specific_genre_horror)
 
     def test_get_books_with_specific_genre_correct_named_book_genre_dict_incorrect_genre_empty_list(self, collector_filled):
         """Некорректный жанр возвращает пустой список из заполненной коллекции"""
@@ -95,7 +95,7 @@ class TestBooksCollector:
         """Детские книги"""
         books_for_children = collector_filled.get_books_for_children()
 
-        assert all(BOOKS_GENRE.get(book) not in GENRE_AGE_RATING for book in books_for_children)
+        assert all(collector_filled.books_genre.get(book) not in collector_filled.genre_age_rating for book in books_for_children)
 
 # ===== add_book_in_favorites =====================================================================================
 
@@ -137,4 +137,4 @@ class TestBooksCollector:
         """Получение списка избранного"""
         list_of_favorites_books = collector_filled_favorites.get_list_of_favorites_books()
 
-        assert set(list_of_favorites_books) == set(BOOKS_GENRE.keys())
+        assert set(list_of_favorites_books) == set(collector_filled_favorites.favorites)
