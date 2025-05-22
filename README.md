@@ -3,13 +3,13 @@
 ## Тесты для класса BooksCollector
 
 ### Метод `add_new_book`
-1. **test_add_new_book_correct_book_true**  
-   _Книга с корректным названием добавляется в список._  
-   Проверяет, что книга появляется в словаре `books_genre`.
-
-2. **test_add_new_book_correct_book_empty_genre**  
+1. **test_add_new_book_correct_book_empty_genre**  
    _Книга с корректным названием добавляется в список._  
    Убеждается, что жанр по умолчанию — пустая строка.
+
+2. **test_add_new_book_correct_book_len_one**  
+   _Книга с корректным названием добавляется в список._  
+   Проверяет, что книга появляется в словаре `books_genre`.
 
 3. **test_add_new_book_correct_named_two_books_len_one**  
    _Две одинаковые книги корректной длины — добавляется только одна._  
@@ -84,7 +84,7 @@
     _Удаление из избранного книги, которая там есть._  
     Проверяет корректное удаление существующей книги.
 
-16. **test_delete_book_from_favorites_not_exists_book_favorites_lists_not_changed**  
+16. **test_delete_book_from_favorites_unknown_book_favorites_lists_not_changed**  
     _Удаление из избранного книги, которой там нет._  
     Гарантирует, что список не меняется при удалении отсутствующей книги.
 
