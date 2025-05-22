@@ -41,10 +41,10 @@ class TestBooksCollector:
 # ===============================================================================================================
 
     # Полученный словарь книга-жанр идентичен по значениям инициализированному
-    def test_get_books_genre_correct_named_book_genre_dict_equal(self, collector, correct_named_book_genre_dict):
-        collector.books_genre=correct_named_book_genre_dict
+    def test_get_books_genre_correct_named_book_genre_dict_equal(self, collector):
+        collector.books_genre=CORRECT_NAMED_BOOK_GENRE_DICT
 
-        assert collector.get_books_genre() == correct_named_book_genre_dict  # Python 3.7+
+        assert collector.get_books_genre() == CORRECT_NAMED_BOOK_GENRE_DICT  # Python 3.7+
 
 # ===============================================================================================================
 
@@ -128,16 +128,16 @@ class TestBooksCollector:
 
 
     # Удаление из избранного книги, которой там нет
-    def test_delete_book_from_favorites_not_exists_book_favorites_lists_not_changed(self, collector, correct_named_book_list):
-        collector.favorites = correct_named_book_list
+    def test_delete_book_from_favorites_not_exists_book_favorites_lists_not_changed(self, collector):
+        collector.favorites = CORRECT_NAMED_BOOK_GENRE_DICT.keys()
         collector.delete_book_from_favorites(INCORRECT_BOOK)
         
-        assert set(collector.favorites) == set(correct_named_book_list)
+        assert set(collector.favorites) == set(CORRECT_NAMED_BOOK_GENRE_DICT.keys())
 
 # ===============================================================================================================
 
     # Получение списка избранного и сравнение с инициализируемым
-    def test_get_list_of_favorites_books_book_list_equal(self, collector, correct_named_book_list):
+    def test_get_list_of_favorites_books_book_list_equal(self, collector):
         collector.favorites = CORRECT_NAMED_BOOK_GENRE_DICT.keys()
 
         assert set(collector.get_list_of_favorites_books()) == set(CORRECT_NAMED_BOOK_GENRE_DICT.keys())
