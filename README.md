@@ -1,91 +1,91 @@
 # Sprint_4
 
 ### **Метод: `add_new_book`**  
-1. **Название теста:** `test_add_new_book_correct_book_empty_genre`  
+1. `test_add_new_book_correct_book_empty_genre`  
    - **Описание:** Пустой жанр после добавления  
    - **Ожидаемый результат:** Жанр добавленной книги должен быть пустой строкой.  
 
-2. **Название теста:** `test_add_new_book_correct_book_len_one`  
+2. `test_add_new_book_correct_book_len_one`  
    - **Описание:** Корректная книга добавляется  
    - **Ожидаемый результат:** Размер коллекции увеличивается на 1 при добавлении книги с допустимым названием.  
 
-3. **Название теста:** `test_add_new_book_correct_named_two_books_len_one`  
+3. `test_add_new_book_correct_named_two_books_len_one`  
    - **Описание:** Дубликаты не добавляются  
    - **Ожидаемый результат:** При повторном добавлении одной книги размер коллекции остаётся равен 1.  
 
-4. **Название теста:** `test_add_new_book_incorrect_named_book_len_zero`  
+4. `test_add_new_book_incorrect_named_book_len_zero`  
    - **Описание:** Некорректные названия не добавляются  
    - **Ожидаемый результат:** Книги с пустым названием или длиной более 40 символов не добавляются в коллекцию.  
 
 ---
 
 ### **Метод: `get_books_genre`**  
-5. **Название теста:** `test_get_books_genre_correct_named_book_genre_dict_equal`  
+5. `test_get_books_genre_correct_named_book_genre_dict_equal`  
    - **Описание:** Получение словаря книг-жанров  
    - **Ожидаемый результат:** Возвращаемый словарь `books_genre` должен совпадать с тестовыми данными.  
 
 ---
 
 ### **Метод: `get_book_genre`**  
-6. **Название теста:** `test_get_book_genre_correct_book_genre_true`  
+6. `test_get_book_genre_correct_book_genre_true`  
    - **Описание:** Получение жанра книги  
    - **Ожидаемый результат:** Метод возвращает корректный жанр для указанной книги.  
 
 ---
 
 ### **Метод: `set_book_genre`**  
-7. **Название теста:** `test_set_book_genre_correct_book_genre_true`  
+7. `test_set_book_genre_correct_book_genre_true`  
    - **Описание:** Установка жанра  
    - **Ожидаемый результат:** Жанр книги изменяется на указанный, если он допустим.  
 
 ---
 
 ### **Метод: `get_books_with_specific_genre`**  
-8. **Название теста:** `test_get_books_with_specific_genre_correct_named_book_genre_dict_correct_genre_success`  
+8. `test_get_books_with_specific_genre_correct_named_book_genre_dict_correct_genre_success`  
    - **Описание:** Книги по жанру  
    - **Ожидаемый результат:** Возвращаются все книги указанного допустимого жанра.  
 
-9. **Название теста:** `test_get_books_with_specific_genre_correct_named_book_genre_dict_incorrect_genre_empty_list`  
+9. `test_get_books_with_specific_genre_correct_named_book_genre_dict_incorrect_genre_empty_list`  
    - **Описание:** Некорректный жанр возвращает пустой список из заполненной коллекции  
    - **Ожидаемый результат:** При запросе недопустимого жанра возвращается пустой список.  
 
-10. **Название теста:** `test_get_books_with_specific_genre_empty_books_genre_correct_genre_empty_list`  
+10. `test_get_books_with_specific_genre_empty_books_genre_correct_genre_empty_list`  
     - **Описание:** Любой жанр возвращает пустой список из пустой коллекции  
     - **Ожидаемый результат:** При пустой коллекции метод возвращает пустой список для любого жанра.  
 
 ---
 
 ### **Метод: `get_books_for_children`**  
-11. **Название теста:** `test_get_books_for_children_correct_kids_book_success`  
+11. `test_get_books_for_children_correct_kids_book_success`  
     - **Описание:** Детские книги  
     - **Ожидаемый результат:** Возвращаются книги, жанр которых не входит в список возрастных ограничений.  
 
 ---
 
 ### **Метод: `add_book_in_favorites`**  
-12. **Название теста:** `test_add_book_in_favorites_correct_named_book_several_times_favorites_len_one`  
+12. `test_add_book_in_favorites_correct_named_book_several_times_favorites_len_one`  
     - **Описание:** Добавление в избранное без дубликатов  
     - **Ожидаемый результат:** Книга добавляется в избранное только один раз, независимо от количества вызовов.  
 
-13. **Название теста:** `test_add_book_in_favorites_unknown_book_empty_favorites`  
+13. `test_add_book_in_favorites_unknown_book_empty_favorites`  
     - **Описание:** Добавление несуществующей книги в избранное  
     - **Ожидаемый результат:** Несуществующая книга не добавляется в избранное.  
 
 ---
 
 ### **Метод: `delete_book_from_favorites`**  
-14. **Название теста:** `test_delete_book_from_favorites_book_favorites_len_decreased_by_one`  
+14. `test_delete_book_from_favorites_book_favorites_len_decreased_by_one`  
     - **Описание:** Удаление из избранного  
     - **Ожидаемый результат:** Размер списка избранного уменьшается на 1 после удаления существующей книги.  
 
-15. **Название теста:** `test_delete_book_from_favorites_unknown_book_favorites_len_not_changed`  
+15. `test_delete_book_from_favorites_unknown_book_favorites_len_not_changed`  
     - **Описание:** Удаление неизвестной книги из избранного  
     - **Ожидаемый результат:** Размер списка избранного не изменяется при попытке удаления несуществующей книги.  
 
 ---
 
 ### **Метод: `get_list_of_favorites_books`**  
-16. **Название теста:** `test_get_list_of_favorites_books_book_list_equal`  
+16. `test_get_list_of_favorites_books_book_list_equal`  
     - **Описание:** Получение списка избранного  
     - **Ожидаемый результат:** Возвращаемый список избранных книг совпадает с тестовыми данными.  
 
