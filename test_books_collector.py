@@ -6,21 +6,18 @@ from main import BooksCollector
 class TestBooksCollector:
     # Книга с корректным названием добавляется в список
     def test_add_new_book_correct_book_true(self, collector, correct_book):
-        collector.books_genre = {}
         collector.add_new_book(correct_book)
 
         assert len(collector.books_genre) == 1 and correct_book in collector.books_genre
 
     # Книга с корректным названием добавляются в список
     def test_add_new_book_correct_book_empty_genre(self, collector, correct_book):
-        collector.books_genre = {}
         collector.add_new_book(correct_book)
 
         assert collector.books_genre[correct_book] == ''
 
     # Две одинаковые книги корретной длины, добавляется только одна
     def test_add_new_book_correct_named_two_books_len_one(self, collector, correct_book):
-        collector.books_genre = {}
         collector.add_new_book(correct_book)
         collector.add_new_book(correct_book)
 
@@ -29,7 +26,6 @@ class TestBooksCollector:
     # Книги с некорректным названием не добавляются
     @pytest.mark.parametrize('name', ['', 'Как не потеряться в Икеа и найти выход до пенсии'])
     def test_add_new_book_incorrect_named_book_len_zero(self, collector, name):
-        collector.books_genre = {}
         collector.add_new_book(name)
 
         assert len(collector.books_genre) == 0
@@ -42,14 +38,12 @@ class TestBooksCollector:
 
     # Полученный жанр книги совпадает с инициализированным
     def test_get_book_genre_correct_book_genre_true(self, collector, correct_book, correct_genre):
-        collector.books_genre = {}
         collector.books_genre[correct_book] = correct_genre
         
         assert collector.get_book_genre(correct_book) == correct_genre
 
     # Жанр книги устанавливается корректно, если книга есть в коллекции
     def test_set_book_genre_correct_book_genre_true(self, collector, correct_book, correct_genre):
-        collector.books_genre = {}
         collector.books_genre[correct_book] = ''
         collector.set_book_genre(correct_book, correct_genre)
 
@@ -70,7 +64,6 @@ class TestBooksCollector:
 
     # Проверка получения книг определенного жанра со списком корректных жанров и с пустым словарем книга-жанр
     def test_get_books_with_specific_genre_empty_books_genre_correct_genre_empty_list(self, collector, correct_genre):
-        collector.books_genre = {}
         
         assert collector.get_books_with_specific_genre(correct_genre) == []
 
@@ -84,7 +77,6 @@ class TestBooksCollector:
     # Проверка добавления книги в избранное, если книга уже есть в коллекции
     def test_add_book_in_favorites_correct_named_one_book_favorites_len_one(self, collector, correct_book, correct_genre):
         collector.books_genre[correct_book] = correct_genre
-        collector.favorites = []
         collector.add_book_in_favorites(correct_book)
 
         assert len(collector.favorites) == 1 and correct_book in collector.favorites
@@ -92,7 +84,6 @@ class TestBooksCollector:
     # Проверка добавления двух одинаковых книг в избранное, если книга уже есть в коллекции
     def test_add_book_in_favorites_correct_named_two_same_book_favorites_len_one(self, collector, correct_book, correct_genre):
         collector.books_genre[correct_book] = correct_genre
-        collector.favorites = []
         collector.add_book_in_favorites(correct_book)
         collector.add_book_in_favorites(correct_book)
 
@@ -101,14 +92,12 @@ class TestBooksCollector:
     # Проверка добавления в избранное книги, которой нет в коллекции
     def test_add_book_in_favorites_one_book_not_in_collector_empty_favorites(self, collector, correct_named_book_genre_dict):
         collector.books_genre = correct_named_book_genre_dict
-        collector.favorites = []
         collector.add_book_in_favorites('123jkljfslakjdskajf asjdkf asdjf')
 
         assert len(collector.favorites) == 0
 
     # Удаление из избранного книги, которая там есть
     def test_delete_book_from_favorites_exists_book_empty_favorites(self, collector, correct_book):
-        collector.favorites = []
         collector.favorites.append(correct_book)
         collector.delete_book_from_favorites(correct_book)
         
