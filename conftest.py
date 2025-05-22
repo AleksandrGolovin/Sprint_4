@@ -2,27 +2,25 @@ import pytest
 
 from main import BooksCollector
 from data import (
-    CORRECT_BOOKS_GENRE,
-    CORRECT_GENRE_HORROR,
-    GENRE_AGE_RATING
+    BOOK,
+    BOOKS_GENRE
 )
 
 
-# Экземпляр класса
+# Экземпляр класса пустой
 @pytest.fixture
-def collector():
-    return BooksCollector()
+def collector_empty():
+    collector_empty = BooksCollector()
+    return collector_empty
 
+# Экземпляр класса с данными
 @pytest.fixture
-def books_genre():
-    yield CORRECT_BOOKS_GENRE
+def collector_filled(collector_empty):
+    collector_empty.books_genre = BOOKS_GENRE
+    return collector_empty
 
-# Фильтрованный список ужастиков из общего списка
+# Экземпляр класса с данными
 @pytest.fixture
-def horrors_books(books_genre):
-    yield [book for book, genre in books_genre.items() if genre == CORRECT_GENRE_HORROR]
-
-# Фильтрованный список приемлемых для детей книг из общего списка
-@pytest.fixture
-def children_allowed_books(books_genre):
-    yield [book for book, genre in books_genre.items() if genre not in GENRE_AGE_RATING]
+def collector_filled_favorites(collector_filled):
+    collector_filled.favorites = list(BOOKS_GENRE)
+    return collector_filled
