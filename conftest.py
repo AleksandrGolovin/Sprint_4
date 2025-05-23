@@ -14,12 +14,15 @@ def collector_empty():
 
 # Экземпляр класса с данными
 @pytest.fixture
-def collector_filled(collector_empty):
-    collector_empty.books_genre = BOOKS_GENRE
-    return collector_empty
+def collector_filled():
+    collector_filled = BooksCollector()
+    collector_filled.books_genre = BOOKS_GENRE
+    return collector_filled
 
 # Экземпляр класса с данными
 @pytest.fixture
-def collector_filled_favorites(collector_filled):
-    collector_filled.favorites = list(BOOKS_GENRE)
-    return collector_filled
+def collector_filled_favorites():
+    collector_filled_favorites = BooksCollector()
+    collector_filled_favorites.books_genre = BOOKS_GENRE
+    collector_filled_favorites.favorites = list(BOOKS_GENRE)
+    return collector_filled_favorites
