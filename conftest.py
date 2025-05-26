@@ -1,28 +1,15 @@
 import pytest
 
 from main import BooksCollector
-from data import (
-    BOOKS_GENRE
-)
 
-
-# Экземпляр класса пустой
+# Фабрика для создания коллектора: пустого, с книгами и/или с избранным
 @pytest.fixture
-def collector_empty():
-    collector_empty = BooksCollector()
-    return collector_empty
-
-# Экземпляр класса с данными
-@pytest.fixture
-def collector_filled():
-    collector_filled = BooksCollector()
-    collector_filled.books_genre = BOOKS_GENRE
-    return collector_filled
-
-# Экземпляр класса с данными
-@pytest.fixture
-def collector_filled_favorites():
-    collector_filled_favorites = BooksCollector()
-    collector_filled_favorites.books_genre = BOOKS_GENRE
-    collector_filled_favorites.favorites = list(BOOKS_GENRE)
-    return collector_filled_favorites
+def collector_factory():
+    def _factory(books=None, favorites=None):
+        collector = BooksCollector()
+        if books:
+            collector.books_genre = books
+        if favorites:
+            collector.favorites = favorites
+        return collector
+    return _factory
